@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小米商城 - Xiaomi 11 Ultra、Redmi K40 Pro、MIX FOLD，小米电视官方网站</title>
+  <meta name="description" content="小米官网直营小米公司旗下所有产品，包括Xiaomi手机系列，Redmi红米系列，小米电视、笔记本、米家智能家居等，同时提供小米客户服务及售后支持." />
+  <meta name="keywords" content="Xiaomi,redmi,Xiaomi11 Ultra,Redmi Note 9,Xiaomi MIX Alpha,小米商城" />
+  <link rel="shortcut icon" href="./img/mi_favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/swiper.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <div class="top-nav">
+      <div class="w">
+        <div class="top-left-nav">
+          <a href="#" class="top-left-item" v-for="(item, index) in topLeft_list" :key="index">{{item}}</a>
+        </div>
+        <div class="top-right-nav">
+          <a href="#" class="top-right-item" v-for="(item, index) in topRight_list" :key="index">{{item}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav w">
+      <div class="logo"></div>
+      <div class="link">
+        <a href="#" class="link-item" v-for="(item, index) in link_list" :key="index">{{item}}</a>
+      </div>
+      <div :class="isShow ? 'search active' : 'search'">
+        <input type="text" placeholder="红米" @focus="inputFocus" @blur="inputBlur">
+        <i :class="isShow ? 'active' : ''">搜索</i>
+        <div class="searchTip" v-show="isShow">
+          <span v-for="(item, index) in searchTip_list" :key="index">{{item}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="main w">
+      <div class="aside">
+        <ul class="list">
+          <li v-for="(item, index) in listItem" :key="index">
+            <a href="#">{{item}}<em>&gt;</em></a>
+          </li>
+        </ul>
+      </div>
+      <div class="banner">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(item, index) in bannerImg" :key="index">
+              <img :src="item" alt="">
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next">&gt;</div>
+          <div class="swiper-button-prev">&lt;</div>
+        </div>
+      </div>
+    </div>
+    <div class="recommend w">
+      <div class="left">
+        <ul class="channel">
+          <li v-for="(item, index) in channels" :key="index">
+            <a href="#"><img :src="item.icon" alt=""><span>{{item.name}}</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="right">
+        <a href="#" v-for="(item, index) in recomImg" :key="index"><img :src="item" alt=""></a>
+      </div>
+    </div>
+    <div class="page-main">
+      <div class="w">
+        <div class="advert">
+          <a href="#"><img src="./img/Redmi_K40s.webp" alt=""></a>
+        </div>
+        <div class="goods">
+          <div class="goods-hd">
+            <h2 class="title">手机</h2>
+            <a href="#" class="more">查看更多<i>&gt;</i></a>
+          </div>
+          <div class="goods-bd">
+            <div class="goods-list-left">
+              <a href="#"><img src="./img/K50.webp" alt=""></a>
+            </div>
+            <div class="goods-list-right">
+              <ul class="brick-list">
+                <li class="list-item" v-for="(item ,index) in goodsList" :key="index">
+                  <a href="#">
+                    <img :src="item.imgSrc" alt="">
+                    <h3 class="title">{{item.title}}</h3>
+                    <p class="desc">{{item.desc}}</p>
+                    <p class="price">
+                      <span>{{item.price}}元起</span>
+                      <span v-if="item.del" class="del">{{item.del}}元</span>
+                    </p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/swiper.min.js"></script>
+  <script src="./js/vue.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
